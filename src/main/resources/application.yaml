@@ -1,0 +1,28 @@
+server:
+  port: 7373
+  servlet:
+    context-path: /ehcache/v1
+
+spring:
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+  h2:
+    console:
+      enabled: true
+      path: /h2ui
+  datasource:
+    url: jdbc:h2:mem:ehcache
+    username: test
+    password: test@123
+    driverClassName: org.h2.Driver
+  jpa:
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
